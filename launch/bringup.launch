@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <node name="qr_sensor" pkg="qr_sensor" type="hand_sensor" args="/dev/qr_sensor 115200" output="screen">
+  </node>
+
+  <node name="dobot" pkg="dobot" type="DobotServer" args="dobot" output="screen">
+  </node>
+
+  <arg name="hostname" default="192.168.3.141"/>
+  <arg name="hostport" default="10086"/>
+  <node name="primeii_ros_bridge" pkg="primeii_ros_bridge" type="primeii_ros_bridge.py"  output="screen">
+    <param name="hostname" value="$(arg hostname)"/>
+	  <param name="hostport" value="$(arg hostport)" />
+  </node>
+
+</launch>

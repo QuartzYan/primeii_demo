@@ -1,0 +1,4 @@
+SUBSYSTEMS=="usb", ENV{.LOCAL_ifNum}="$attr{bInterfaceNumber}"
+
+MODE:="0777", KERNELS=="1-1:1.0", SYMLINK+="qr_sensor"
+MODE:="0777", KERNELS=="1-2:1.0", SYMLINK+="dobot"
